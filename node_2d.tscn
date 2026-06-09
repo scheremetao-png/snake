@@ -1,8 +1,35 @@
 [gd_scene format=3 uid="uid://c4e7kmqpj88xk"]
 
-[ext_resource type="Script" uid="uid://ohi4ykeiomf4" path="res://snake_ia.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://cx3accu4icygm" path="res://Scripts/Food.gd" id="1_x0ka3"]
+[ext_resource type="PackedScene" uid="uid://du8bd10sloh8o" path="res://Scenes/Main.tscn" id="3_0h7mo"]
+[ext_resource type="PackedScene" uid="uid://cs6e0bc13sk5d" path="res://Scenes/GameManager.tscn" id="4_nr8wp"]
+[ext_resource type="Script" uid="uid://dnwclec3d0drg" path="res://Scripts/GameManager.gd" id="5_d2bti"]
+[ext_resource type="PackedScene" uid="uid://beca2ibvrmhg4" path="res://Scenes/Grid.tscn" id="6_ta5nu"]
+[ext_resource type="Script" uid="uid://db6m7icpcrrjq" path="res://Scripts/Grid.gd" id="7_flf07"]
+[ext_resource type="PackedScene" uid="uid://cj4iw3w8uxlio" path="res://Scenes/Snake.tscn" id="8_k73cj"]
+[ext_resource type="Script" uid="uid://cvddp8t3ufdfx" path="res://Scripts/Snake.gd" id="9_rjqkl"]
+[ext_resource type="PackedScene" uid="uid://b4v6cf8p7nev4" path="res://Scenes/Food.tscn" id="10_fs4d3"]
+[ext_resource type="PackedScene" uid="uid://duoqn65548d31" path="res://Scenes/HUD.tscn" id="11_7vxoj"]
+[ext_resource type="Script" uid="uid://cfkk653ch5kdb" path="res://Scripts/HUD.gd" id="12_ei405"]
 
-[node name="Node2D" type="Node2D" unique_id=1477553118]
+[node name="Root Scene" type="Node2D" unique_id=1477553118]
+script = ExtResource("1_x0ka3")
 
 [node name="snake ia" type="Node2D" parent="." unique_id=828279666]
-script = ExtResource("2_0e48y")
+
+[node name="Main" parent="." unique_id=2024198962 instance=ExtResource("3_0h7mo")]
+
+[node name="GameManager" parent="Main" unique_id=1317600594 instance=ExtResource("4_nr8wp")]
+script = ExtResource("5_d2bti")
+
+[node name="Grid" parent="Main" unique_id=1538978436 instance=ExtResource("6_ta5nu")]
+script = ExtResource("7_flf07")
+
+[node name="Snake" parent="Main" unique_id=1210542142 instance=ExtResource("8_k73cj")]
+script = ExtResource("9_rjqkl")
+
+[node name="Food" parent="Main" unique_id=1236388184 instance=ExtResource("10_fs4d3")]
+script = ExtResource("1_x0ka3")
+
+[node name="Hud" parent="Main" unique_id=1904668884 instance=ExtResource("11_7vxoj")]
+script = ExtResource("12_ei405")
