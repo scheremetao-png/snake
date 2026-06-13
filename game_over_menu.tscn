@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dgi40f26wpua2"]
+
+[ext_resource type="FontFile" uid="uid://dlmmh0x7seru4" path="res://MaldiniBold.ttf" id="1_14ib6"]
+[ext_resource type="Script" uid="uid://cd3peidex8dsw" path="res://game_over_menu.gd" id="1_prwox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prwox"]
+bg_color = Color(0.35686275, 0, 0.92941177, 1)
+shadow_color = Color(0.10980392, 0.09803922, 0.16862746, 1)
+shadow_size = 3
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp3el"]
+bg_color = Color(5.2943824e-07, 0.86199677, 0.28578568, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j5i6"]
+bg_color = Color(0.8156863, 0.8235294, 0.14901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isdfh"]
+
+[node name="GameOverMenu" type="CanvasLayer" unique_id=18451030]
+script = ExtResource("1_prwox")
+
+[node name="GameOverPanel" type="Panel" parent="." unique_id=1868858546]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prwox")
+
+[node name="RestartLabel" type="Label" parent="." unique_id=369439041]
+offset_left = 366.5
+offset_top = 439.0
+offset_right = 633.5
+offset_bottom = 509.0
+theme_override_fonts/font = ExtResource("1_14ib6")
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="." unique_id=967889035]
+offset_left = 399.0
+offset_top = 519.0
+offset_right = 604.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.24122906, 0.8490771, 9.62615e-06, 1)
+theme_override_colors/icon_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 0.16862746, 1)
+theme_override_fonts/font = ExtResource("1_14ib6")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_wp3el")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4j5i6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_isdfh")
+text = "Play Again
+"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

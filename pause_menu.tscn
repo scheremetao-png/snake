@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dxnf5yydn2p1n"]
+
+[ext_resource type="Script" uid="uid://ppf2jlpsvv0q" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="FontFile" uid="uid://dlmmh0x7seru4" path="res://MaldiniBold.ttf" id="1_v2lfg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg4cr"]
+
+[node name="pause_menu" type="CanvasLayer" unique_id=935286650]
+script = ExtResource("1_nwcfo")
+
+[node name="Panel" type="Panel" parent="." unique_id=466663023]
+offset_left = 404.0
+offset_top = 429.0
+offset_right = 604.0
+offset_bottom = 579.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tg4cr")
+
+[node name="Label" type="Label" parent="." unique_id=1577802409]
+offset_left = 429.0
+offset_top = 462.0
+offset_right = 584.0
+offset_bottom = 563.0
+theme_override_fonts/font = ExtResource("1_v2lfg")
+theme_override_font_sizes/font_size = 48
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
