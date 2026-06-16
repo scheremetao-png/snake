@@ -1,6 +1,7 @@
 extends Node
 
 @export var snake_scene : PackedScene
+var grid = GridBackground.new()
 
 #game variables
 var score : int
@@ -28,10 +29,16 @@ var right = Vector2(1, 0)
 var move_direction : Vector2
 var can_move : bool
 
+@onready var pause_UI = $pauseUI
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	add_child(grid)
+	grid.position.y=cell_size
+	move_child(grid,0)
 	new_game()
-	
+
 func new_game():
 	get_tree().paused = false
 	get_tree().call_group("segments", "queue_free")
@@ -60,7 +67,8 @@ func add_segment(pos):
 
 
 func _process(delta: float) -> void:
-	move_snake()
+	if not get_tree().paused:
+		move_snake()
 
 
 func move_snake():
@@ -89,6 +97,24 @@ func move_snake():
 func start_game():
 	game_started = true
 	$MoveTimer.start()
+
+func _unhandled_input(event):
+	# Verifica se a ação "pause" foi pressionada E não estamos na tela de Game Over
+	if event.is_action_pressed("pause") and game_started:
+		toggle_pause()
+
+
+func toggle_pause():
+	# Inverte o estado atual de pausa do jogo
+	var is_paused = not get_tree().paused
+	get_tree().paused = is_paused
+	
+	# Mostra ou esconde o texto centralizado baseado no estado
+	if is_paused:
+		pause_UI.show()
+	else:
+		pause_UI.hide()
+
 
 func _on_move_timer_timeout() -> void:
 	#allow snake movement
