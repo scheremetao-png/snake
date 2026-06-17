@@ -103,7 +103,6 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause") and game_started:
 		toggle_pause()
 
-
 func toggle_pause():
 	# Inverte o estado atual de pausa do jogo
 	var is_paused = not get_tree().paused
@@ -164,3 +163,13 @@ func end_game():
 
 func _on_game_over_menu_restart() -> void:
 	new_game()
+
+func _on_pause_ui_restart() -> void:
+	pause_UI.hide()
+	$MoveTimer.stop()
+	game_started = false
+	get_tree().paused = true
+	new_game()
+
+func _on_pause_ui_resume() -> void:
+	toggle_pause()

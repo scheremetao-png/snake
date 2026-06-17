@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://behcmt7bqxiij"]
 
+[ext_resource type="Script" uid="uid://c1wbkfjr0ywo6" path="res://pause_ui.gd" id="1_6736i"]
+
 [node name="pauseUI" type="CanvasLayer" unique_id=537179154]
+script = ExtResource("1_6736i")
 
 [node name="menuPause" type="VBoxContainer" parent="." unique_id=1022914929]
 anchors_preset = 8
@@ -32,3 +35,6 @@ text = "Resume"
 [node name="RestartButton" type="Button" parent="menuPause" unique_id=1441679750]
 layout_mode = 2
 text = "Restart"
+
+[connection signal="pressed" from="menuPause/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="menuPause/RestartButton" to="." method="_on_restart_button_pressed"]

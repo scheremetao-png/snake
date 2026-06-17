@@ -19,7 +19,6 @@ script = ExtResource("7_272bh")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1695198359]
 process_mode = 4
-visible = false
 texture = ExtResource("2_h2yge")
 offset = Vector2(500, 550)
 
@@ -41,3 +40,5 @@ visible = false
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="restart" from="GameOverMenu" to="." method="_on_game_over_menu_restart"]
+[connection signal="restart" from="pauseUI" to="." method="_on_pause_ui_restart"]
+[connection signal="resume" from="pauseUI" to="." method="_on_pause_ui_resume"]
